@@ -17,7 +17,11 @@ const PORT = process.env.PORT || 3000;
 
 app.use(
   cors({
-    origin: "http://localhost:3000",
+    origin: [
+      "http://localhost:3000", // untuk development
+      "https://caffeine-fullstack-fix.vercel.app", // atau domain frontend yang sudah deploy
+      "https://caffeine-fullstack-fix-production.up.railway.app", // jika frontend juga di railway
+    ],
     credentials: true,
   })
 );

@@ -40,9 +40,12 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
   const checkAuthStatus = async () => {
     try {
-      const response = await fetch("http://localhost:3000/api/auth/status", {
-        credentials: "include", // ⬅️ penting!
-      });
+      const response = await fetch(
+        "https://caffeine-fullstack-fix-production.up.railway.app/api/auth/status",
+        {
+          credentials: "include", // ⬅️ penting!
+        }
+      );
       const data = await response.json();
 
       if (data.isAuthenticated) {
@@ -59,14 +62,17 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   };
 
   const login = async (email: string, password: string) => {
-    const response = await fetch("http://localhost:3000/api/auth/login", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      credentials: "include", // ⬅️ wajib
-      body: JSON.stringify({ email, password }),
-    });
+    const response = await fetch(
+      "https://caffeine-fullstack-fix-production.up.railway.app/api/auth/login",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        credentials: "include", // ⬅️ wajib
+        body: JSON.stringify({ email, password }),
+      }
+    );
 
     const data = await response.json();
 
@@ -83,14 +89,17 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     password: string,
     phone: string
   ) => {
-    const response = await fetch("http://localhost:3000/api/auth/register", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      credentials: "include", // ⬅️ direkomendasikan juga
-      body: JSON.stringify({ name, email, password, phone }),
-    });
+    const response = await fetch(
+      "https://caffeine-fullstack-fix-production.up.railway.app/api/auth/register",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        credentials: "include", // ⬅️ direkomendasikan juga
+        body: JSON.stringify({ name, email, password, phone }),
+      }
+    );
 
     const data = await response.json();
 
@@ -100,10 +109,13 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   };
 
   const logout = async () => {
-    const response = await fetch("http://localhost:3000/api/auth/logout", {
-      method: "POST",
-      credentials: "include", // ⬅️ wajib
-    });
+    const response = await fetch(
+      "https://caffeine-fullstack-fix-production.up.railway.app/api/auth/logout",
+      {
+        method: "POST",
+        credentials: "include", // ⬅️ wajib
+      }
+    );
 
     const data = await response.json();
 

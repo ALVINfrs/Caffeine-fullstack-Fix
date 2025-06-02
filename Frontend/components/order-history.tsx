@@ -18,7 +18,7 @@ export default function OrderHistory() {
     const fetchOrders = async () => {
       try {
         const response = await fetch(
-          "http://localhost:3000/api/orders/user/orders",
+          "https://caffeine-fullstack-fix-production.up.railway.app/api/orders/user/orders",
           {
             credentials: "include",
           }
@@ -51,7 +51,7 @@ export default function OrderHistory() {
   const viewOrderReceipt = async (orderId: string) => {
     try {
       const response = await fetch(
-        `http://localhost:3000/api/orders/${orderId}`,
+        `https://caffeine-fullstack-fix-production.up.railway.app/api/orders/${orderId}`,
         {
           credentials: "include",
         }
@@ -69,7 +69,7 @@ export default function OrderHistory() {
         data.items.map(async (item: any) => {
           try {
             const productResponse = await fetch(
-              `http://localhost:3000/api/products/${item.product_id}`,
+              `https://caffeine-fullstack-fix-production.up.railway.app/api/products/${item.product_id}`,
               {
                 credentials: "include",
               }

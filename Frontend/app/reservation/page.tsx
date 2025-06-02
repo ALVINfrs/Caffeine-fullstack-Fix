@@ -89,7 +89,7 @@ export default function ReservationPage() {
   const fetchRooms = async () => {
     try {
       const response = await fetch(
-        "http://localhost:3000/api/reservations/rooms",
+        "https://caffeine-fullstack-fix-production.up.railway.app/api/reservations/rooms",
         {
           credentials: "include",
         }
@@ -130,7 +130,7 @@ export default function ReservationPage() {
       });
 
       const response = await fetch(
-        `http://localhost:3000/api/reservations/check-availability?${params}`,
+        `https://caffeine-fullstack-fix-production.up.railway.app/api/reservations/check-availability?${params}`,
         {
           credentials: "include",
         }
@@ -239,7 +239,7 @@ export default function ReservationPage() {
     setLoading(true);
     try {
       const response = await fetch(
-        "http://localhost:3000/api/reservations/create",
+        "https://caffeine-fullstack-fix-production.up.railway.app/api/reservations/create",
         {
           method: "POST",
           headers: {
