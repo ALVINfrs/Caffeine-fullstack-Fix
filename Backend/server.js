@@ -17,7 +17,9 @@ const PORT = process.env.PORT || 3000;
 
 app.use(
   cors({
-    origin: "http://localhost:3001",
+    origin: (origin, callback) => {
+      callback(null, true); // izinkan semua origin
+    },
     credentials: true,
   })
 );
