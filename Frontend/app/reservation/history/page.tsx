@@ -510,7 +510,7 @@ export default function ReservationHistory() {
                   Jl. Contoh No. 123, Kota, Provinsi 12345
                 </p>
                 <p className="text-gray-600 dark:text-gray-400 text-sm">
-                  Telp: (021) 1234-5678 | Email: info@restaurant.com
+                  Telp: (021) 1234-5678 | Email: info@Caffeine.com
                 </p>
                 <div className="mt-4">
                   <h2 className="text-xl font-semibold text-gray-900 dark:text-white">
