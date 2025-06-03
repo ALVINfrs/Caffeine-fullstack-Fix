@@ -1,6 +1,6 @@
 require("dotenv").config();
 const session = require("express-session");
-const RedisStore = require("connect-redis")(session);
+const RedisStore = require("connect-redis"); // Tanpa (session)
 const redis = require("redis");
 
 // Create Redis client
@@ -21,7 +21,10 @@ client.on("connect", () => {
 });
 
 const sessionConfig = session({
-  store: new RedisStore({ client: client }),
+  store: new RedisStore({
+    client: client,
+    prefix: "caffeine_session:", // optional prefix
+  }),
   secret: process.env.SESSION_SECRET,
   resave: false,
   saveUninitialized: false,
