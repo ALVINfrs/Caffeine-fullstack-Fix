@@ -13,12 +13,13 @@ const voucherRoutes = require("./routes/voucherRoutes");
 const reservationRoutes = require("./routes/reservationRoutes");
 
 const app = express();
+app.set("trust proxy", 1);
 const PORT = process.env.PORT || 3000;
 
 app.use(
   cors({
     origin: [
-      "http://localhost:3000", // untuk development
+      "http://localhost:3001", // untuk development
       "https://caffeine-fullstack-fix.vercel.app", // atau domain frontend yang sudah deploy
       "https://caffeine-fullstack-fix-production.up.railway.app", // jika frontend juga di railway
     ],
