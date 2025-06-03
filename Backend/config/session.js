@@ -1,35 +1,35 @@
 require("dotenv").config();
 const session = require("express-session");
-const RedisStore = require("connect-redis")(session); // benar untuk v6+
+const RedisStore = require("connect-redis").default; // ✅ fix di v6
 const redis = require("redis");
 
-// Create Redis client
+// Buat Redis client
 const client = redis.createClient({
   url: process.env.REDIS_URL || "redis://localhost:6379",
 });
 
-// Connect to Redis (important!)
 client.connect().catch(console.error);
 
-// Handle connection events
+// Event listener
 client.on("error", (err) => {
-  console.log("Redis Client Error", err);
+  console.error("Redis Client Error", err);
 });
 
 client.on("connect", () => {
   console.log("✅ Connected to Redis");
 });
 
+// Konfigurasi session
 const sessionConfig = session({
   store: new RedisStore({
     client: client,
-    prefix: "caffeine_session:", // optional prefix
+    prefix: "caffeine_session:",
   }),
   secret: process.env.SESSION_SECRET,
   resave: false,
   saveUninitialized: false,
   cookie: {
-    secure: true, // auto detect
+    secure: true,
     maxAge: 24 * 60 * 60 * 1000,
     httpOnly: true,
     sameSite: "none",
