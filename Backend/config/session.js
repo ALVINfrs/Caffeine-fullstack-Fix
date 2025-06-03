@@ -1,6 +1,6 @@
 require("dotenv").config();
 const session = require("express-session");
-const RedisStore = require("connect-redis"); // Tanpa (session)
+const RedisStore = require("connect-redis")(session); // benar untuk v6+
 const redis = require("redis");
 
 // Create Redis client
