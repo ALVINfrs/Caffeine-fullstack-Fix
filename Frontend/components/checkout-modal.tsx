@@ -44,9 +44,8 @@ export default function CheckoutModal({ isOpen, onClose }: CheckoutModalProps) {
 
   const { pay, isReady } = useSnapPayment(
     process.env.NEXT_PUBLIC_MIDTRANS_CLIENT_KEY || "",
-    process.env.NODE_ENV === "production"
+    false // ← Langsung false, paling simple
   );
-
   const [formData, setFormData] = useState({
     name: "",
     email: "",
