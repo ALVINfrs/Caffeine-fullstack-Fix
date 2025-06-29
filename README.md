@@ -14,9 +14,12 @@ Proyek ini dikembangkan oleh **Kelompok 5** sebagai bagian dari tugas mata kulia
 
 ## 🏗️ Arsitektur Proyek
 
+## 🏗️ Arsitektur Proyek
+
 Aplikasi ini menggunakan arsitektur *client-server* yang terpisah, di mana frontend dan backend dikembangkan dan di-deploy secara independen.
 
-+----------------------+
+```plaintext
+                               +----------------------+
                                |   Browser / Client   |
                                +-----------+----------+
                                            |
