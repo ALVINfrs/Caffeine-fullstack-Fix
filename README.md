@@ -12,7 +12,6 @@ Proyek ini dikembangkan oleh **Kelompok 5** sebagai bagian dari tugas mata kulia
     4.  Amalia Salsabila       (202343500940)
     5.  Muhammad Moreno Rajata (202343500965)
 
-## 🏗️ Arsitektur Proyek
 
 ## 🏗️ Arsitektur Proyek
 
