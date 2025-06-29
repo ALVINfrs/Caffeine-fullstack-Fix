@@ -2,18 +2,7 @@
 
 Selamat datang di repositori proyek `<Caffeine/>`. Proyek ini adalah aplikasi web *full-stack* yang dirancang untuk sebuah kafe fiksi, menyediakan platform e-commerce untuk pemesanan produk dan sistem reservasi meja. Dibangun dengan tumpukan teknologi modern, proyek ini memisahkan antara frontend dan backend untuk skalabilitas dan pemeliharaan yang lebih baik.
 
-## 👥 Informasi Tim
-
-Proyek ini dikembangkan oleh **Kelompok 5** sebagai bagian dari tugas mata kuliah Praktikum Sistem Basis Data.
-
--   **Anggota Kelompok:**
-    1.  Muhammad Alvin Faris   (202343500943)
-    2.  Muhammad Nafis         (202343500945)
-    4.  Amalia Salsabila       (202343500940)
-    5.  Muhammad Moreno Rajata (202343500965)
-
-
-## 🏗️ Arsitektur Proyek
+## 👥
 
 Aplikasi ini menggunakan arsitektur *client-server* yang terpisah, di mana frontend dan backend dikembangkan dan di-deploy secara independen.
 ## 🏗️ Arsitektur Proyek
