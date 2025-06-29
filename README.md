@@ -2,23 +2,44 @@
 
 Selamat datang di repositori proyek `<Caffeine/>`. Proyek ini adalah aplikasi web *full-stack* yang dirancang untuk sebuah kafe fiksi, menyediakan platform e-commerce untuk pemesanan produk dan sistem reservasi meja. Dibangun dengan tumpukan teknologi modern, proyek ini memisahkan antara frontend dan backend untuk skalabilitas dan pemeliharaan yang lebih baik.
 
+## 👥 Informasi Tim
 
+Proyek ini dikembangkan oleh **Kelompok 5** sebagai bagian dari tugas mata kuliah Praktikum Sistem Basis Data.
+
+-   **Anggota Kelompok:**
+    1.  Muhammad Alvin Faris   (202343500943)
+    2.  Muhammad Nafis         (202343500945)
+    4.  Amalia Salsabila       (202343500940)
+    5.  Muhammad Moreno Rajata (202343500965)
 
 ## 🏗️ Arsitektur Proyek
 
 Aplikasi ini menggunakan arsitektur *client-server* yang terpisah, di mana frontend dan backend dikembangkan dan di-deploy secara independen.
 
-+------------------+      +---------------------+      +-----------------+
-|   Browser/Client | <--> |   Frontend (Next.js)| <--> | Backend (Express) |
-+------------------+      +---------------------+      +-----------------+
-|                                                        |
-| (Rendered Pages)                                       | (REST API Calls)
-|                                                        |
-+--------------------------------------------------------+
-|
-+----------------+      +-----------------+      +-----------+
-| Database (MySQL)|<--> | Session Store   | <--> | Midtrans  |
-+----------------+      +-----------------+      +-----------+
++----------------------+
+                               |   Browser / Client   |
+                               +-----------+----------+
+                                           |
+                  (HTTPS Request / Rendered Pages)
+                                           |
+                               +-----------v----------+
+                               |  Frontend (Next.js)  |
+                               |  (User Interface)    |
+                               +-----------+----------+
+                                           |
+                              (REST API Calls over HTTPS)
+                                           |
+                               +-----------v----------+
+                               |  Backend (Express)   |
+                               |   (Business Logic)   |
+                               +----+----------+------+
+                                    |          |
+             +----------------------+          +--------------------------+
+             |                                                            |
++------------v-----------+    +---------------------------+    +----------v-------------+
+|   Database (MySQL)     | <--+      Session Store        +--> | Midtrans Payment Gateway |
+|  (Data Persistence)    |    |  (Stored in MySQL/Redis)  |    |   (External Service)   |
++------------------------+    +---------------------------+    +--------------------------+
 
 
 * **Frontend (Next.js)**: Bertanggung jawab untuk menyajikan antarmuka pengguna (UI). Komponen-komponennya berinteraksi dengan backend melalui panggilan API untuk mendapatkan atau mengirim data.
