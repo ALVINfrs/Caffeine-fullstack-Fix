@@ -40,12 +40,9 @@ export function ProductProvider({ children }: { children: ReactNode }) {
 
   const fetchProducts = async () => {
     try {
-      const response = await fetch(
-        "https://caffeine-fullstack-fix-production.up.railway.app/api/products",
-        {
-          credentials: "include", // Tambahkan ini
-        }
-      );
+      const response = await fetch("http://localhost:3000/api/products", {
+        credentials: "include", // Tambahkan ini
+      });
 
       if (!response.ok) {
         throw new Error("Failed to fetch products");

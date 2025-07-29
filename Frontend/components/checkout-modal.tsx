@@ -124,7 +124,7 @@ export default function CheckoutModal({ isOpen, onClose }: CheckoutModalProps) {
   const fetchAvailableVouchers = async () => {
     try {
       const response = await fetch(
-        "https://caffeine-fullstack-fix-production.up.railway.app/api/vouchers/active",
+        "http://localhost:3000/api/vouchers/active",
         {
           credentials: "include",
         }
@@ -163,7 +163,7 @@ export default function CheckoutModal({ isOpen, onClose }: CheckoutModalProps) {
       const total = subtotal + shipping;
 
       const response = await fetch(
-        "https://caffeine-fullstack-fix-production.up.railway.app/api/vouchers/validate",
+        "http://localhost:3000/api/vouchers/validate",
         {
           method: "POST",
           headers: {
@@ -246,7 +246,7 @@ export default function CheckoutModal({ isOpen, onClose }: CheckoutModalProps) {
       console.log("Updating payment method with data:", updateData);
 
       const response = await fetch(
-        `https://caffeine-fullstack-fix-production.up.railway.app/api/orders/${orderNumber}/payment-update`,
+        `http://localhost:3000/api/orders/${orderNumber}/payment-update`,
         {
           method: "PUT",
           headers: {
@@ -328,17 +328,14 @@ export default function CheckoutModal({ isOpen, onClose }: CheckoutModalProps) {
     console.log("Order data sent to backend:", orderData);
 
     try {
-      const response = await fetch(
-        "https://caffeine-fullstack-fix-production.up.railway.app/api/orders",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          credentials: "include",
-          body: JSON.stringify(orderData),
-        }
-      );
+      const response = await fetch("http://localhost:3000/api/orders", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        credentials: "include",
+        body: JSON.stringify(orderData),
+      });
 
       const data = await response.json();
       console.log("Backend response:", data);

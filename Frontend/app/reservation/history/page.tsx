@@ -92,7 +92,7 @@ export default function ReservationHistory() {
   const fetchReservations = async () => {
     try {
       const response = await fetch(
-        "https://caffeine-fullstack-fix-production.up.railway.app/api/reservations/user/my-reservations",
+        "http://localhost:3000/api/reservations/user/my-reservations",
         {
           credentials: "include",
         }
@@ -122,7 +122,7 @@ export default function ReservationHistory() {
   const fetchReservationHistory = async (reservationId: number) => {
     try {
       const response = await fetch(
-        `https://caffeine-fullstack-fix-production.up.railway.app/api/reservations/${reservationId}/history`,
+        `http://localhost:3000/api/reservations/${reservationId}/history`,
         {
           credentials: "include",
         }
@@ -181,7 +181,7 @@ export default function ReservationHistory() {
     setRescheduleLoading(true);
     try {
       const response = await fetch(
-        `https://caffeine-fullstack-fix-production.up.railway.app/api/reservations/${selectedReservation.id}/reschedule`,
+        `http://localhost:3000/api/reservations/${selectedReservation.id}/reschedule`,
         {
           method: "PUT",
           headers: {
@@ -225,7 +225,7 @@ export default function ReservationHistory() {
 
     try {
       const response = await fetch(
-        `https://caffeine-fullstack-fix-production.up.railway.app/api/reservations/${reservationId}/cancel`,
+        `http://localhost:3000/api/reservations/${reservationId}/cancel`,
         {
           method: "PUT",
           headers: {

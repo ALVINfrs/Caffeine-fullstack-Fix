@@ -21,9 +21,9 @@ const sessionConfig = session({
   saveUninitialized: false,
   cookie: {
     maxAge: 24 * 60 * 60 * 1000, // 1 hari
-    secure: true, // TRUE karena kamu pakai HTTPS (sudah kamu bilang)
+    secure: false, // ✅ FALSE untuk development (HTTP)
     httpOnly: true,
-    sameSite: "none", // Penting agar cookie dikirim ke frontend beda origin
+    sameSite: "lax", // ✅ "lax" untuk development, "none" untuk production
   },
 });
 
