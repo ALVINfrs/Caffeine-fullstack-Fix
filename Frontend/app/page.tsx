@@ -10,6 +10,7 @@ import Loading from "@/components/loading";
 import Faq from "@/components/faq";
 import PersonalizedSection from "@/components/PersonalizedSection";
 import TestimonialSliderNative from "@/components/testimoni";
+import EventsHub from "@/components/events-hub";
 
 export default function Home() {
   return (
@@ -23,6 +24,7 @@ export default function Home() {
       </Suspense>
       <Faq />
       <TestimonialSliderNative />
+      <EventsHub />
       <Contact />
       <Footer />
     </main>
