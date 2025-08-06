@@ -13,12 +13,14 @@ import TestimonialSliderNative from "@/components/testimoni";
 import EventsHub from "@/components/events-hub";
 import Gallery from "@/components/gallery";
 import CoffeeLab from "@/components/coffeelab";
+import TerminalShowcase from "../components/TerminalShowcase";
 
 export default function Home() {
   return (
     <main className="min-h-screen">
       <Navbar />
       <Hero />
+      <TerminalShowcase />
       <PersonalizedSection />
       <About />
       <CoffeeLab />
