@@ -7,6 +7,7 @@ import { AuthProvider } from "@/context/auth-context";
 import { CartProvider } from "@/context/cart-context";
 import { ProductProvider } from "@/context/product-context";
 import { Toaster } from "@/components/ui/toaster";
+import DotNav from "@/components/DotNav";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -17,7 +18,7 @@ const poppins = Poppins({
 export const metadata: Metadata = {
   title: "<Caffeine/>",
   description: "Kopi untuk para developer",
-  generator: "v0.dev",
+  generator: "Alvinfrs",
 };
 
 export default function RootLayout({
@@ -38,6 +39,7 @@ export default function RootLayout({
             <CartProvider>
               <ProductProvider>
                 {children}
+                <DotNav />
                 <Toaster />
               </ProductProvider>
             </CartProvider>

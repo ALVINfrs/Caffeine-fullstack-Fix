@@ -234,7 +234,11 @@ export default function TerminalShowcase() {
   };
 
   return (
-    <section ref={ref} className="py-20 sm:py-24 bg-white dark:bg-black">
+    <section
+      id="terminal"
+      ref={ref}
+      className="py-20 sm:py-24 bg-white dark:bg-black"
+    >
       <div
         className={`container mx-auto px-4 transition-all duration-1000 ease-out ${
           inView ? "opacity-100" : "opacity-0"
