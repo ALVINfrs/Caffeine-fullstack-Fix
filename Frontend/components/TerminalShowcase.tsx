@@ -58,7 +58,7 @@ export default function TerminalShowcase() {
   const endOfTerminalRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
 
-  // [FIXED] Logika Booting ditulis ulang agar aman dan bebas error
+  // Booting Sequence
   useEffect(() => {
     if (inView && isBooting) {
       const bootSequence: { text: string; delay?: number; type?: LineType }[] =
@@ -98,14 +98,10 @@ export default function TerminalShowcase() {
   }, [inView, isBooting]);
 
   useEffect(() => {
-    endOfTerminalRef.current?.scrollIntoView({ behavior: "smooth" });
-  }, [lines]);
-
-  useEffect(() => {
-    if (!isBooting) {
-      inputRef.current?.focus();
+    if (inView) {
+      endOfTerminalRef.current?.scrollIntoView({ behavior: "smooth" });
     }
-  }, [isBooting]);
+  }, [lines, inView]);
 
   const handleCommand = (command: string) => {
     const newLines = [
@@ -257,7 +253,7 @@ export default function TerminalShowcase() {
 
             <div
               className="p-4 font-mono text-sm text-gray-200 h-96 overflow-y-auto scrollbar-thin scrollbar-thumb-gray-600 scrollbar-track-gray-800"
-              onClick={() => inputRef.current?.focus()}
+              onClick={() => inputRef.current?.focus({ preventScroll: true })}
             >
               {lines.map((line, index) => (
                 <div key={index} className="flex">
@@ -294,7 +290,6 @@ export default function TerminalShowcase() {
                     onChange={(e) => setInput(e.target.value)}
                     onKeyDown={handleKeyDown}
                     className="bg-transparent border-none outline-none text-gray-200 w-full font-mono text-sm"
-                    autoFocus
                     spellCheck="false"
                     autoComplete="off"
                   />
