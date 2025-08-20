@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useMemo } from "react";
+import { useState, useEffect, useMemo, use } from "react";
 import {
   Coffee,
   Sparkles,
@@ -11,6 +11,7 @@ import {
   Users2,
   Zap,
 } from "lucide-react";
+import { useAuth } from "@/context/auth-context";
 
 // --- DATA UNTUK KONTEN DINAMIS ---
 const dailyPromos = [
@@ -90,7 +91,7 @@ const vibeRecommendations = {
 
 // --- KOMPONEN UTAMA ---
 export default function PersonalizedHubV2() {
-  const [userName, setUserName] = useState<string | null>(null);
+  const { user } = useAuth(); // ✅ ambil user dari context auth
   const [userVibe, setUserVibe] = useState<
     "fokus" | "santai" | "kelompok" | null
   >(null);
@@ -101,16 +102,13 @@ export default function PersonalizedHubV2() {
     return dailyPromos.find((p) => p.day === today) || dailyPromos[0];
   }, []);
 
-  // Efek untuk memeriksa data dari localStorage saat pertama kali load
+  // Efek untuk ambil vibe user dari localStorage (opsional masih boleh simpan vibe per user)
   useEffect(() => {
-    const storedName = localStorage.getItem("caffeineVisitorName");
     const storedVibe = localStorage.getItem("caffeineUserVibe") as
       | "fokus"
       | "santai"
       | "kelompok"
       | null;
-
-    if (storedName) setUserName(storedName);
     if (storedVibe) setUserVibe(storedVibe);
   }, []);
 
@@ -130,9 +128,7 @@ export default function PersonalizedHubV2() {
         {/* Judul & Sapaan */}
         <div className="text-center mb-6">
           <h2 className="text-3xl sm:text-4xl font-extrabold text-gray-900 dark:text-white">
-            {userName
-              ? `Halo Lagi, ${userName}!`
-              : "Selamat Datang di Caffeine!"}
+            {user ? `Halo Lagi, ${user.name}!` : "Selamat Datang di Caffeine!"}
           </h2>
           <p className="mt-3 text-lg text-gray-600 dark:text-gray-400">
             Pilih vibe Anda hari ini untuk rekomendasi terbaik dari kami.
