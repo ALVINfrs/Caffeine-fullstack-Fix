@@ -11,6 +11,7 @@ const productRoutes = require("./routes/productRoutes");
 const orderRoutes = require("./routes/orderRoutes");
 const voucherRoutes = require("./routes/voucherRoutes");
 const reservationRoutes = require("./routes/reservationRoutes");
+const adminRoutes = require("./routes/adminRoutes");
 
 const app = express();
 app.set("trust proxy", 1);
@@ -38,6 +39,7 @@ app.use("/api/products", productRoutes);
 app.use("/api/orders", orderRoutes);
 app.use("/api/vouchers", voucherRoutes);
 app.use("/api/reservations", reservationRoutes);
+app.use("/api/admin", adminRoutes);
 
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);

@@ -4,6 +4,7 @@ const router = express.Router();
 
 router.post("/register", authController.register);
 router.post("/login", authController.login);
+router.post("/admin/login", authController.adminLogin); // <-- New admin login route
 router.post("/logout", authController.logout);
 router.get("/status", authController.getAuthStatus);
 

@@ -7,7 +7,6 @@ import { AuthProvider } from "@/context/auth-context";
 import { CartProvider } from "@/context/cart-context";
 import { ProductProvider } from "@/context/product-context";
 import { Toaster } from "@/components/ui/toaster";
-import DotNav from "@/components/DotNav";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -39,7 +38,6 @@ export default function RootLayout({
             <CartProvider>
               <ProductProvider>
                 {children}
-                <DotNav />
                 <Toaster />
               </ProductProvider>
             </CartProvider>

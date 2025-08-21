@@ -10,10 +10,11 @@ async function findByEmail(email) {
 
 async function createUser(name, email, password, phone) {
   const hashedPassword = bcrypt.hashSync(password, 10);
+  const role = 'user'; // Default role for new users
 
   const [result] = await pool.query(
-    "INSERT INTO users (name, email, password, phone) VALUES (?, ?, ?, ?)",
-    [name, email, hashedPassword, phone]
+    "INSERT INTO users (name, email, password, phone, role) VALUES (?, ?, ?, ?, ?)",
+    [name, email, hashedPassword, phone, role]
   );
 
   return result.insertId;

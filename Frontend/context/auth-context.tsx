@@ -13,11 +13,13 @@ interface User {
   name: string;
   email: string;
   phone: string;
+  role: string;
 }
 
 interface AuthContextType {
   user: User | null;
   loading: boolean;
+  checkAuthStatus: () => Promise<void>; // <-- Add this
   login: (email: string, password: string) => Promise<void>;
   register: (
     name: string,
@@ -115,7 +117,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   };
 
   return (
-    <AuthContext.Provider value={{ user, loading, login, register, logout }}>
+    <AuthContext.Provider value={{ user, loading, checkAuthStatus, login, register, logout }}>
       {children}
     </AuthContext.Provider>
   );
